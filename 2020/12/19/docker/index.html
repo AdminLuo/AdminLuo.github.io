@@ -20,31 +20,74 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一个学web安全的小菜鸡~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AdminLuo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="Docker概述DevOps： 开发运维 本质：所有的技术都是因为出现了问题，我们需要去解决，才去学习 Docker的思想就来自于集装箱 开发—-运维 传统 开发人员开发一个jar给运维人员，运维人员去搭建环境 现在 开发人员将环境和jar文件打包部署上线，一套流程做完（使用docker） 例如 使用java写一款apk， 发布到应用商店  某人在应用商店安装apk—-安装即可用 但是 使用jav">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker">
+<meta property="og:url" content="http://example.com/2020/12/19/docker/index.html">
 <meta property="og:site_name" content="AdminLuo">
-<meta property="og:description" content="一个学web安全的小菜鸡~">
+<meta property="og:description" content="Docker概述DevOps： 开发运维 本质：所有的技术都是因为出现了问题，我们需要去解决，才去学习 Docker的思想就来自于集装箱 开发—-运维 传统 开发人员开发一个jar给运维人员，运维人员去搭建环境 现在 开发人员将环境和jar文件打包部署上线，一套流程做完（使用docker） 例如 使用java写一款apk， 发布到应用商店  某人在应用商店安装apk—-安装即可用 但是 使用jav">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200929132330451.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200929132435695.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200929132454471.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200929132529058.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200918150317514.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200918151357337.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200918153921184.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200918155005871.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200918155115989.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200918155719247.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200918191632958.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200920100917924.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200920101012879.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200920101028885.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200921134245569.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200921134306725.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200921135123078.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200921213956866.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200921215400377.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200921220014183.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200921220059867.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200921220107982.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200921220557568.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200928113408308.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200928121518202.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200929124942210.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200930184513770.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200930184835556.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200930185652042.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200930190340684.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200930190808701.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200930192752679.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200930194649056.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200930194916305.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20201002132830165.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20201002133540727.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20201002133708027.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20201007131537038.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20201007212605138.png">
+<meta property="og:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20201007212913986.png">
+<meta property="article:published_time" content="2020-12-19T14:41:41.133Z">
+<meta property="article:modified_time" content="2020-12-19T14:57:49.913Z">
 <meta property="article:author" content="AdminLuo">
 <meta property="article:tag" content="Python,Web安全">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/AdminLuo/AppData/Roaming/Typora/typora-user-images/image-20200929132330451.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2020/12/19/docker/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>AdminLuo</title>
+  <title>docker | AdminLuo</title>
   
 
 
@@ -181,9 +224,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -199,10 +243,9 @@
       <meta itemprop="name" content="AdminLuo">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/19/docker/" class="post-title-link" itemprop="url">docker</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          docker
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -226,7 +269,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Docker概述"><a href="#Docker概述" class="headerlink" title="Docker概述"></a>Docker概述</h3><p>DevOps： 开发运维</p>
+        <h3 id="Docker概述"><a href="#Docker概述" class="headerlink" title="Docker概述"></a>Docker概述</h3><p>DevOps： 开发运维</p>
 <p>本质：所有的技术都是因为出现了问题，我们需要去解决，才去学习</p>
 <p>Docker的思想就来自于集装箱</p>
 <p>开发—-运维</p>
@@ -494,93 +537,37 @@
 <p>Docker Swarm</p>
 <p>CI/CD   Jenkins  流水线</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/19/hello-world/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="AdminLuo">
-      <meta itemprop="description" content="一个学web安全的小菜鸡~">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AdminLuo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/19/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-19 19:50:50" itemprop="dateCreated datePublished" datetime="2020-12-19T19:50:50+08:00">2020-12-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/19/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -627,6 +614,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">Docker概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">Docker能干什么</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">Docker的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F"><span class="nav-number">2.1.</span> <span class="nav-text">配置阿里云镜像加速</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E9%A1%BEHelloWorld%E6%B5%81%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">回顾HelloWorld流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">底层原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">Docker常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4"><span class="nav-number">3.1.</span> <span class="nav-text">Docker帮助命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">镜像命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.3.</span> <span class="nav-text">容器命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">3.4.</span> <span class="nav-text">常用其他命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">3.5.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-number">3.6.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">3.7.</span> <span class="nav-text">可视化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%95%9C%E5%83%8F"><span class="nav-number">4.</span> <span class="nav-text">Docker镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">4.1.</span> <span class="nav-text">镜像是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker%E9%95%9C%E5%83%8F%E5%8A%A0%E8%BD%BD%E5%8E%9F%E7%90%86"><span class="nav-number">4.2.</span> <span class="nav-text">Docker镜像加载原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B1%82%E7%90%86%E8%A7%A3"><span class="nav-number">4.3.</span> <span class="nav-text">分层理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#commit%E9%95%9C%E5%83%8F"><span class="nav-number">4.4.</span> <span class="nav-text">commit镜像</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-number">5.</span> <span class="nav-text">容器数据卷</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%B9%E5%99%A8%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-number">5.1.</span> <span class="nav-text">什么是容器数据卷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-number">5.2.</span> <span class="nav-text">使用数据卷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E6%88%98%EF%BC%9A%E5%AE%89%E8%A3%85mysql"><span class="nav-number">5.3.</span> <span class="nav-text">实战：安装mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E5%90%8D%E5%92%8C%E5%8C%BF%E5%90%8D%E6%8C%82%E8%BD%BD"><span class="nav-number">5.4.</span> <span class="nav-text">具名和匿名挂载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DockerFile"><span class="nav-number">5.5.</span> <span class="nav-text">DockerFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E8%AF%86dockerfile"><span class="nav-number">5.6.</span> <span class="nav-text">初识dockerfile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8"><span class="nav-number">5.7.</span> <span class="nav-text">数据卷容器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile"><span class="nav-number">6.</span> <span class="nav-text">Dockerfile</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DockerFile%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="nav-number">6.1.</span> <span class="nav-text">DockerFile构建过程</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E7%A4%BA%E6%B3%A8%E9%87%8A"><span class="nav-number"></span> <span class="nav-text">表示注释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dockerfile%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="nav-number">0.1.</span> <span class="nav-text">dockerfile的指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E6%88%98%E6%B5%8B%E8%AF%95"><span class="nav-number">0.2.</span> <span class="nav-text">实战测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E6%88%98%EF%BC%9Atomcat%E9%95%9C%E5%83%8F"><span class="nav-number">0.3.</span> <span class="nav-text">实战：tomcat镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84%E9%95%9C%E5%83%8F"><span class="nav-number">0.4.</span> <span class="nav-text">发布自己的镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93-1"><span class="nav-number">0.5.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%BD%91%E7%BB%9C"><span class="nav-number">1.</span> <span class="nav-text">Docker网络</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -802,6 +790,25 @@ window.addEventListener('pjax:success', () => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '1810b022027fda8988c1',
+      clientSecret: '632f98316d65641c17f789e0693bb4d18d78113e',
+      repo        : 'adminluo.github.io',
+      owner       : 'AdminLuo',
+      admin       : ['AdminLuo'],
+      id          : 'c07f730d1cb7eebe63a39b036c6e8ef3',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
     </div>
 </body>
